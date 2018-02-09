@@ -1,0 +1,19 @@
+body {
+  background: grey;
+}
+#jumbo {
+  margin-top: 15px;
+  border: black 2px solid;
+  background-color: teal;
+  color: white;
+}
+.panel {
+  background-color: teal;
+  color: white;
+}
+label {
+  color: black;
+}
+th {
+  color: black;
+}
