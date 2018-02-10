@@ -27,6 +27,21 @@ $("#add-train-btn").on("click", function() {
     firstTrain: firstTrain,
     frequency: frequency
   };
+
+  trainData.ref().push(newTrain);
+  alert("Train successfully added");
+
+  console.log(newTrain.name);
+  console.log(newTrain.destination);
+  console.log(newTrain.firstTrain);
+  console.log(newTrain.frequency);
+
+  // print info to the page
+  $("#train-name-input").val("");
+  $("#destination-input").val("");
+  $("#first-train-input").val("");
+  $("#frequency-input").val("");
+
 });
 
 
