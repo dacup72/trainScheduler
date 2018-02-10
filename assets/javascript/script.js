@@ -16,7 +16,17 @@ var trainData = firebase.database();
 
 // Add new train
 $("#add-train-btn").on("click", function() {
+  var trainName = $("#train-name-input").val().trim();
+  var destination = $("#destination-input").val().trim();
+  var firstTrain = $("#first-train-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
 
+  var newTrain = {
+    name: trainName,
+    destination: destination,
+    firstTrain: firstTrain,
+    frequency: frequency
+  };
 });
 
 
