@@ -31,10 +31,10 @@ $("#add-train-btn").on("click", function() {
   trainData.ref().push(newTrain);
   alert("Train successfully added");
 
-  console.log(newTrain.name);
-  console.log(newTrain.destination);
-  console.log(newTrain.firstTrain);
-  console.log(newTrain.frequency);
+  // console.log(newTrain.name);
+  // console.log(newTrain.destination);
+  // console.log(newTrain.firstTrain);
+  // console.log(newTrain.frequency);
 
   // print info to the page
   $("#train-name-input").val("");
@@ -64,6 +64,14 @@ trainData.ref().on("child_added", function(childSnapshot, prevChildKey) {
   if (maxMoment === trainTime) {
     tArrival = trainTime.format("hh:mm A");
     tMinutes = trainTime.diff(moment(), "minutes");
+  } else {
+    var differenceTimes = moment().diff(trainTime, "minutes");
+    var tRemainder = differenceTimes % tFrequency;
+    tMinutes = tFrequency - tRemainder;
+    tArrival = moment().add(tMinutes, "m").format("hh:mm A");
+  }
+  // console.log("tMinutes:", tMinutes);
+  // console.log("tArrival:", tArrival);
 });
 
 
