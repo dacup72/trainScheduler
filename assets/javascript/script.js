@@ -60,6 +60,10 @@ trainData.ref().on("child_added", function(childSnapshot, prevChildKey) {
   var maxMoment = moment.max(moment(), trainTime);
   var tMinutes;
   var tArrival;
+
+  if (maxMoment === trainTime) {
+    tArrival = trainTime.format("hh:mm A");
+    tMinutes = trainTime.diff(moment(), "minutes");
 });
 
 
