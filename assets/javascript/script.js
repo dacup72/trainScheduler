@@ -47,7 +47,19 @@ $("#add-train-btn").on("click", function() {
 
 // Function to handle database updates
 trainData.ref().on("child_added", function(childSnapshot, prevChildKey) {
+  // console.log(childSnapshot.val());
 
+  // Store everything into variables
+  var tName = childSnapshot.val().name;
+  var tDestination = childSnapshot.val().destination;
+  var tFrequency = childSnapshot.val().frequency;
+  var tFirstTrain = childSnapshot.val().firstTrain;
+
+  var timeArr = tFirstTrain.split(":");
+  var trainTime = moment().hours(timeArr[0]).minutes(timeArr[1]);
+  var maxMoment = moment.max(moment(), trainTime);
+  var tMinutes;
+  var tArrival;
 });
 
 
